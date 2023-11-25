@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+</head>
+<body>
+
+    <script>
+        // Get the query parameters from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const isNewUser = urlParams.get('newuser');
+
+        // Check if the 'newuser' parameter is present
+        if (isNewUser) {
+            // If it is, greet the new user
+            alert('Welcome, new user!');
+        }
+    </script>
+
+    <!-- Your main page content goes here -->
+
+</body>
+</html>
