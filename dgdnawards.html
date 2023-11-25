@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>Greeting</title>
 </head>
 <body>
 
+    <h1 id="greeting">Hi, </h1>
+
     <script>
-        // Get the query parameters from the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const isNewUser = urlParams.get('newuser');
+        // Function to extract the streamer parameter from the URL
+        function getStreamerParameter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('streamer');
+        }
 
-        // Select the element where you want to display the result
-        const resultElement = document.getElementById('result');
+        // Update the content of the greeting element with the streamer parameter
+        function updateGreeting() {
+            const streamer = getStreamerParameter();
+            const greetingElement = document.getElementById('greeting');
 
-        // Display the value of isNewUser (either true or false)
-        resultElement.textContent = isNewUser;
+            if (streamer) {
+                greetingElement.textContent += streamer + '!';
+            } else {
+                greetingElement.textContent += 'Unknown Streamer!';
+            }
+        }
 
+        // Call the updateGreeting function when the page loads
+        window.onload = updateGreeting;
     </script>
-
-    <!-- Display the result here -->
-    <p id="result"></p>
-
-    <!-- Your main page content goes here -->
 
 </body>
 </html>
