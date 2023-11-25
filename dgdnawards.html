@@ -10,17 +10,19 @@
     <script>
         // Get the query parameters from the URL
         const urlParams = new URLSearchParams(window.location.search);
-        const isNewUser = urlParams.get('streamer');
+        const isNewUser = urlParams.get('newuser');
 
-        // Check if the 'newuser' parameter is present
-        if (isNewUser) {
-            // If it is, greet the new user
-            alert('Welcome, new user!');
-        }
+        // Select the element where you want to display the result
         const resultElement = document.getElementById('result');
-        resultElement.textContent = streamer;
+
+        // Display the value of isNewUser (either true or false)
+        resultElement.textContent = isNewUser;
+
     </script>
+
+    <!-- Display the result here -->
     <div id="result"></div>
+
     <!-- Your main page content goes here -->
 
 </body>
