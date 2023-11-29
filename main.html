@@ -72,6 +72,12 @@
         <h1>Encouraging Aspiring Streamers</h1>
         <p>The impact of the DGDN Streamer Awards extends beyond the winners themselves. Aspiring streamers are encouraged to <br>witness the success stories of those who have been recognized for their efforts. The awards serve as a source of motivation for <br>individuals looking to enter the world of streaming, demonstrating that dedication, creativity, and authenticity can lead to meaningful <br>recognition and support from the community.</p>
         <p></p>
+        <h>The Winners:</h>
+        <a href="">skirimbloke</a>
+        <a href="">highly247</a>
+        <a id="streamerText"></a>
+        <a href="">thekitchenshow</a>
+        
     </section>
 
     <script>
@@ -85,9 +91,11 @@
         function updateGreeting() {
             const streamer = getStreamerParameter();
             const greetingElement = document.getElementById('greeting');
+            const textStreamer = document.getElementById('streamerText');
 
             if (streamer) {
                 greetingElement.textContent += streamer + ', one of our 2023 DGDN Award Winners!';
+                textStreamer.textContent += streamer;
             } else {
                 greetingElement.textContent += 'Unknown Streamer!';
             }
