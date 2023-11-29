@@ -80,12 +80,15 @@
             const greetingElement = document.getElementById('greeting');
 
             if (streamer) {
-                greetingElement.textContent += streamer + ', the Winner of the 2023 DGDN Awards!';
+                greetingElement.textContent += streamer + '!';
+            } else {
+                greetingElement.textContent += 'Unknown Streamer!';
             }
         }
 
         // Call the updateGreeting function when the page loads
         window.onload = updateGreeting;
+        
     </script>
 </body>
 </html>
