@@ -17,7 +17,7 @@
             background: url('https://twitchnews.github.io/article/page.png') no-repeat center center;
             background-size: cover;
             color: #fff;
-            padding: 20px;
+            padding: 50px;
             text-align: center;
         }
 
@@ -49,7 +49,7 @@
 <body>
 
     <header>
-        <h1>Welcome to My Theme</h1>
+        <h1 id="greeting">Meet </h1>
     </header>
 
     <nav>
@@ -65,7 +65,28 @@
 
     <footer>
         <p>&copy; 2023 My Theme. All rights reserved.</p>
-    </footer>
+    </footer
+    <script>
+        // Function to extract the streamer parameter from the URL
+        function getStreamerParameter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('streamer');
+        }
 
+        // Update the content of the greeting element with the streamer parameter
+        function updateGreeting() {
+            const streamer = getStreamerParameter();
+            const greetingElement = document.getElementById('greeting');
+
+            if (streamer) {
+                greetingElement.textContent += streamer + ', Our 2023 DGDN Award Winner.';
+            } else {
+                window.close()
+            }
+        }
+
+        // Call the updateGreeting function when the page loads
+        window.onload = updateGreeting;
+    </script>
 </body>
 </html>
