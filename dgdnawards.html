@@ -3,85 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blurred Page</title>
+    <title>2023 DGDN Award Winners</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.oaistatic.com/_next/static/media/favicon-32x32.be48395e.png">
     <style>
         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #160921;
+            color: #fdfdfd;
             margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('background-image.jpg'); /* Replace with your background image */
+            padding: 0;
+        }
+
+        header {
+            background: url('https://twitchnews.github.io/article/page.png') no-repeat center center;
             background-size: cover;
-            filter: blur(10px);
+            color: #fff;
+            padding: 50px;
+            text-align: right;
+            font-size: 40px;
+            filter: blur(10px); /* Apply blur to header */
         }
 
-        .content {
-            z-index: 1;
-            position: relative;
+        nav {
+            background-color: #050208;
+            color: #fff;
+            padding: 40px;
+            text-align: left;
+            font-size: 20px;
+            filter: blur(10px); /* Apply blur to nav */
         }
 
-        .blurred-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.8); /* Adjust the color and opacity as needed */
-            z-index: 2;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
         }
 
-        .button-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        section {
+            padding: 20px;
+            color: #fff;
+            font-size: 20px;
+            filter: blur(10px); /* Apply blur to section */
+        }
+
+        footer {
+            background-color: #050208;
+            color: #fff;
+            padding: 10px;
             text-align: center;
-            z-index: 3; /* Ensure the button is above the blur overlay */
+            filter: blur(10px); /* Apply blur to footer */
         }
 
-        .button-box {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 10px;
-            background-color: #e0e0e0; /* Gray background color */
-            cursor: pointer;
-        }
-
-        .button-box:hover {
-            background-color: #8a2be2; /* Purple highlight color on hover */
-            color: #fff; /* White text color on hover */
+        .image1 {
+            float: right;
+            margin: 0px 0px 10px 10px; /* Adjust margins as needed */
+            filter: blur(10px); /* Apply blur to image */
         }
     </style>
 </head>
 <body>
-    <div class="blurred-overlay"></div>
-    <div class="content">
-        <!-- Your page content goes here -->
-        <h1>Welcome to the Blurred Page!</h1>
-        <p>This is some example content.</p>
-    </div>
+    <button onclick="toggleBlur()">Toggle Blur</button>
+    <header>
+        <h1 id="greeting">Meet </h1>
+        <h1>2023 DGDN Award Winners!</h1>
+    </header>
+
+    <nav>
+        <a href="https://twitch.tv">Home</a>
+        <a href="https://twitch.tv/about">About</a>
+        <a href="https://twitch.tv/contact">Contact</a>
+    </nav>
+
+    <section>
+        <img src="https://twitchnews.github.io/article/twitch-extruded.png" alt="Right Image1" class="image1">
+
+        <h1>About the DGDN Awards</h1>
+        <!-- ... (rest of your content) ... -->
+    </section>
 
     <script>
         function toggleBlur() {
-            const body = document.body;
-            const blurredOverlay = document.querySelector('.blurred-overlay');
+            const elements = document.querySelectorAll('header, nav, section, footer, .image1');
 
-            if (body.style.filter === 'blur(10px)') {
-                // If blurred, remove blur and hide the blurred overlay
-                body.style.filter = '';
-                blurredOverlay.style.display = 'none';
+            elements.forEach(element => {
+                const currentFilter = element.style.filter;
+                element.style.filter = currentFilter ? '' : 'blur(10px)';
+            });
+        }
+
+        // Function to extract the streamer parameter from the URL
+        function getStreamerParameter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('streamer');
+        }
+
+        // Update the content of the greeting element with the streamer parameter
+        function updateGreeting() {
+            const streamer = getStreamerParameter();
+            const greetingElement = document.getElementById('greeting');
+            const textStreamer = document.getElementById('streamerText');
+
+            if (streamer) {
+                greetingElement.textContent += streamer + ', one of our';
+                textStreamer.textContent += streamer;
             } else {
-                // If not blurred, apply blur and show the blurred overlay
-                body.style.filter = 'blur(10px)';
-                blurredOverlay.style.display = 'block';
+                window.close();
             }
         }
-    </script>
 
-    <div class="button-container">
-        <div class="button-box" onclick="toggleBlur()">Toggle Blur</div>
-    </div>
+        // Call the updateGreeting function when the page loads
+        window.onload = updateGreeting;
+    </script>
+    <footer>
+        <p>&copy; 2023 Dale Glenn Media Center. All rights reserved by the Jaheed Jehnsen Fund and the Pop Monster Institute.</p>
+    </footer>
 </body>
 </html>
