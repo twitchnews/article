@@ -60,7 +60,7 @@
     </nav>
 
     <section>
-        <h1 id="greeting"></h1>
+        <h1 id="title"></h1>
         <h2>is a creator everyone should aspire to be. They are a great example of an aspiring streamer</h2>
         <p>This is the main content of your page.</p>
     </section>
@@ -76,6 +76,7 @@
         function updateGreeting() {
             const streamer = getStreamerParameter();
             const greetingElement = document.getElementById('greeting');
+            const greetingElement = document.getElementById('title');
 
             if (streamer) {
                 greetingElement.textContent += streamer + ', one of our 2023 DGDN Award Winners!';
