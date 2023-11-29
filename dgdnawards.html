@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... (unchanged head section) ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 DGDN Award Winners</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://twitchnews.github.io/article/twitch-extruded.ico">
     <style>
+
         /* ... (unchanged styles) ... */
         .overlay {
             position: fixed;
@@ -32,20 +36,123 @@
             border-radius: 5px;
             cursor: pointer;
         }
+    
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #160921;
+            color: #fdfdfd;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        header {
+            background: url('https://twitchnews.github.io/article/page.png') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 50px;
+            text-align: right;
+            font-size: 40px;
+        }
+
+        nav {
+            background-color: #050208;
+            color: #fff;
+            padding: 40px;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        section {
+            padding: 20px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        footer {
+            background-color: #050208;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .image1 {
+            float: right;
+            margin: 0px 0px 10px 10px; /* Adjust margins as needed */
+        }
     </style>
 </head>
 <body>
 
-    <div class="overlay" id="overlay">
+    <header>
+        <h1 id="greeting">Meet </h1>
+        <h1>2023 DGDN Award Winners!</h1>
+    </header>
+
+    <nav>
+        <a href="https://twitch.tv">Home</a>
+        <a href="https://twitch.tv/about">About</a>
+        <a href="https://twitch.tv/contact">Contact</a>
+    </nav>
+
+    <section>
+        <img src="https://twitchnews.github.io/article/twitch-extruded.png" alt="Right Image1" class="image1">
+
+        <h1>About the DGDN Awards</h1>
+        <p>In the dynamic world of live streaming, where content creators continually redefine the landscape of entertainment, the DGDN <br>Streamer Awards stand as a beacon of recognition for those who have demonstrated exceptional talent, creativity, and dedication <br>to their craft. This prestigious award ceremony not only acknowledges outstanding streamers but also rewards them with 10,000 <br>free bits and a $50 Amazon gift card, serving as a testament to the community's appreciation for their groundbreaking contributions.</p>
+        <p></p>
+        <h1>Recognition of Excellence</h1>
+        <p>The DGDN Streamer Awards serve as a platform to celebrate excellence within the streaming community. These awards recognize <br>streamers who have gone above and beyond in captivating audiences, fostering community engagement, and pushing the boundaries <br>of what is possible in the digital realm. The diversity of content and the ability to connect with viewers in unique ways are at the core <br>of these awards, making them a true reflection of the evolving nature of online entertainment.</p>
+        <p></p>
+        <h1>Rewarding Excellence</h1>
+        <p>One of the distinctive features of the DGDN Streamer Awards is the tangible recognition given to the winners. By providing 10,000 <br>free bits, the awards empower streamers to further enhance their content and engage with their audience. The accompanying $50 <br>Amazon gift card adds an extra layer of appreciation, acknowledging the effort and dedication that goes into creating compelling and <br>entertaining streams. This dual reward system not only recognizes excellence but also provides practical support for streamers to <br>continue refining and expanding their content.</p>
+        <p></p>
+        <h1>Encouraging Aspiring Streamers</h1>
+        <p>The impact of the DGDN Streamer Awards extends beyond the winners themselves. Aspiring streamers are encouraged to <br>witness the success stories of those who have been recognized for their efforts. The awards serve as a source of motivation for <br>individuals looking to enter the world of streaming, demonstrating that dedication, creativity, and authenticity can lead to meaningful <br>recognition and support from the community.</p>
+        <p></p>
+        <h1>The Winners:</h1>
+        <p></p>
+        <a href="">skirimbloke</a>
+        <p></p>
+        <a href="">highly247</a>
+        <p></p>
+        <a href="", id="streamerText"></a>
+        <p></p>
+        <a href="">thekitchenshow</a>
+        <p></p>
+    </section>
+    <div class="overlay" id="overlay" style="display: flex;">
         <div class="textbox">
             <p>This is a sample textbox overlay</p>
             <button class="close-button" onclick="closeOverlay()">Close</button>
         </div>
     </div>
-
-    <!-- ... (unchanged body) ... -->
-
     <script>
+        // Function to extract the streamer parameter from the URL
+        function getStreamerParameter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('streamer');
+        }
+
+        // Update the content of the greeting element with the streamer parameter
+        function updateGreeting() {
+            const streamer = getStreamerParameter();
+            const greetingElement = document.getElementById('greeting');
+            const textStreamer = document.getElementById('streamerText');
+
+            if (streamer) {
+                greetingElement.textContent += streamer + ', one of our';
+                textStreamer.textContent += streamer;
+            } else {
+                window.close();
+            }
+        }
+        
         function openOverlay() {
             document.getElementById('overlay').style.display = 'flex';
         }
@@ -56,9 +163,14 @@
 
         // Call the openOverlay function when the page loads (you can call it wherever you need)
         window.onload = openOverlay;
+    
+        
+
+        // Call the updateGreeting function when the page loads
+        window.onload = updateGreeting;
     </script>
     <footer>
-        <!-- ... (unchanged footer) ... -->
+        <p>&copy; 2023 Dale Glenn Media Center. All rights reserved by the Jaheed Jehnsen Fund and the Pop Monster Institute.</p>
     </footer>
 </body>
 </html>
