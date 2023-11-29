@@ -153,7 +153,7 @@
                 greetingElement.textContent += streamer + ', one of our';
                 textStreamer.textContent += streamer;
             } else {
-                window.close();
+                window.onload = openWin;
             }
         }
         
@@ -168,7 +168,11 @@
         // Call the openOverlay function when the page loads (you can call it wherever you need)
         window.onload = openOverlay;
     
-        
+        function openWin() {
+           w = window.open('/yikes.html?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
+           w.resizeTo(400*1.5, 299*1.5);
+           w.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
+        }
 
         // Call the updateGreeting function when the page loads
         window.onload = updateGreeting;
