@@ -66,6 +66,9 @@
     <footer>
         <p>&copy; 2023 My Theme. All rights reserved.</p>
     </footer
+    
+    <h1 id="greeting">Hi, </h1>
+
     <script>
         // Function to extract the streamer parameter from the URL
         function getStreamerParameter() {
@@ -79,9 +82,9 @@
             const greetingElement = document.getElementById('greeting');
 
             if (streamer) {
-                greetingElement.textContent += streamer + ', Our 2023 DGDN Award Winner.';
+                greetingElement.textContent += streamer + '!';
             } else {
-                window.close()
+                greetingElement.textContent += 'Unknown Streamer!';
             }
         }
 
