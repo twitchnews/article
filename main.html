@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background: url('data:image/png;base64,YourBase64ImageHere') no-repeat center center fixed;
+            background-size: cover;
             color: #333;
             margin: 0;
             padding: 0;
@@ -18,6 +19,22 @@
             color: #fff;
             padding: 10px;
             text-align: center;
+            position: relative;
+            border-bottom: 5px solid #0056b3;
+        }
+
+        header::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            background: url('data:image/png;base64,YourBase64ImageHere') no-repeat center center;
+            background-size: cover; /* Scale the image to cover the container */
+            border: 2px solid #fff; /* Optional border around the image */
+            border-radius: 50%; /* Optional border radius for a circular image */
         }
 
         nav {
