@@ -31,14 +31,58 @@
             background: rgba(255, 255, 255, 0.8); /* Adjust the color and opacity as needed */
             z-index: 2;
         }
+
+        .button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .button-box {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #e0e0e0; /* Gray background color */
+            cursor: pointer;
+        }
+
+        .button-box:hover {
+            background-color: #8a2be2; /* Purple highlight color on hover */
+            color: #fff; /* White text color on hover */
+        }
     </style>
 </head>
 <body>
     <div class="blurred-overlay"></div>
     <div class="content">
+        <div class="button-container">
+            <div class="button-box" onclick="toggleBlur()">Toggle Blur</div>
+        </div>
         <!-- Your page content goes here -->
         <h1>Welcome to the Blurred Page!</h1>
         <p>This is some example content.</p>
     </div>
+
+    <script>
+        function toggleBlur() {
+            const body = document.body;
+            const blurredOverlay = document.querySelector('.blurred-overlay');
+            const buttonContainer = document.querySelector('.button-container');
+
+            if (body.style.filter === 'blur(10px)') {
+                // If blurred, remove blur and hide the button container
+                body.style.filter = '';
+                blurredOverlay.style.display = 'none';
+                buttonContainer.style.display = 'none';
+            } else {
+                // If not blurred, apply blur and show the button container
+                body.style.filter = 'blur(10px)';
+                blurredOverlay.style.display = 'block';
+                buttonContainer.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
