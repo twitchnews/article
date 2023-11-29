@@ -14,6 +14,18 @@
             padding: 0;
         }
 
+        body.blur {
+            filter: blur(10px);
+        }
+
+        header, nav, section, footer, .image1 {
+            transition: filter 0.3s ease-in-out;
+        }
+
+        header.blur, nav.blur, section.blur, footer.blur, .image1.blur {
+            filter: blur(10px);
+        }
+
         header {
             background: url('https://twitchnews.github.io/article/page.png') no-repeat center center;
             background-size: cover;
@@ -21,7 +33,6 @@
             padding: 50px;
             text-align: right;
             font-size: 40px;
-            filter: blur(10px); /* Apply blur to header */
         }
 
         nav {
@@ -30,7 +41,6 @@
             padding: 40px;
             text-align: left;
             font-size: 20px;
-            filter: blur(10px); /* Apply blur to nav */
         }
 
         nav a {
@@ -43,7 +53,6 @@
             padding: 20px;
             color: #fff;
             font-size: 20px;
-            filter: blur(10px); /* Apply blur to section */
         }
 
         footer {
@@ -51,13 +60,11 @@
             color: #fff;
             padding: 10px;
             text-align: center;
-            filter: blur(10px); /* Apply blur to footer */
         }
 
         .image1 {
             float: right;
             margin: 0px 0px 10px 10px; /* Adjust margins as needed */
-            filter: blur(10px); /* Apply blur to image */
         }
     </style>
 </head>
@@ -83,11 +90,9 @@
 
     <script>
         function toggleBlur() {
-            const elements = document.querySelectorAll('header, nav, section, footer, .image1');
-
-            elements.forEach(element => {
-                const currentFilter = element.style.filter;
-                element.style.filter = currentFilter ? '' : 'blur(10px)';
+            document.body.classList.toggle('blur');
+            document.querySelectorAll('header, nav, section, footer, .image1').forEach(element => {
+                element.classList.toggle('blur');
             });
         }
 
