@@ -84,18 +84,8 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Check if the user has already seen the cookie popup
-        window.onload = function () {
-            // Assuming you don't want to show the popup on every page load
-            // Adjust the condition as needed based on your requirements
-            if (!document.cookie.includes('hasSeenCookiePopup=true')) {
-                showCookiePopup();
-                // Set a temporary cookie to avoid showing the popup again on this visit
-                document.cookie = 'hasSeenCookiePopup=true; max-age=3600'; // expires in 1 hour
-                // Prevent scrolling when the popup is active
-                document.body.style.overflow = 'hidden';
-            }
-        };
+        // Show the popup when the page loads
+        showCookiePopup();
     </script>
 
 </body>
