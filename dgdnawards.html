@@ -1,126 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2023 DGDN Award Winners</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.oaistatic.com/_next/static/media/favicon-32x32.be48395e.png">
+    <!-- ... (unchanged head section) ... -->
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #160921;
-            color: #fdfdfd;
-            margin: 0;
-            padding: 0;
+        /* ... (unchanged styles) ... */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black background */
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
         }
 
-        body.blur {
-            filter: blur(10px);
-        }
-
-        header, nav, section, footer, .image1 {
-            transition: filter 0.3s ease-in-out;
-        }
-
-        header.blur, nav.blur, section.blur, footer.blur, .image1.blur {
-            filter: blur(10px);
-        }
-
-        header {
-            background: url('https://twitchnews.github.io/article/page.png') no-repeat center center;
-            background-size: cover;
-            color: #fff;
-            padding: 50px;
-            text-align: right;
-            font-size: 40px;
-        }
-
-        nav {
-            background-color: #050208;
-            color: #fff;
-            padding: 40px;
-            text-align: left;
-            font-size: 20px;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-        }
-
-        section {
+        .textbox {
+            background-color: #fff;
             padding: 20px;
-            color: #fff;
-            font-size: 20px;
-        }
-
-        footer {
-            background-color: #050208;
-            color: #fff;
-            padding: 10px;
+            border-radius: 10px;
             text-align: center;
         }
 
-        .image1 {
-            float: right;
-            margin: 0px 0px 10px 10px; /* Adjust margins as needed */
+        .close-button {
+            background-color: #050208;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <button onclick="toggleBlur()">Toggle Blur</button>
-    <header>
-        <h1 id="greeting">Meet </h1>
-        <h1>2023 DGDN Award Winners!</h1>
-    </header>
 
-    <nav>
-        <a href="https://twitch.tv">Home</a>
-        <a href="https://twitch.tv/about">About</a>
-        <a href="https://twitch.tv/contact">Contact</a>
-    </nav>
+    <div class="overlay" id="overlay">
+        <div class="textbox">
+            <p>This is a sample textbox overlay</p>
+            <button class="close-button" onclick="closeOverlay()">Close</button>
+        </div>
+    </div>
 
-    <section>
-        <img src="https://twitchnews.github.io/article/twitch-extruded.png" alt="Right Image1" class="image1">
-
-        <h1>About the DGDN Awards</h1>
-        <!-- ... (rest of your content) ... -->
-    </section>
+    <!-- ... (unchanged body) ... -->
 
     <script>
-        function toggleBlur() {
-            document.body.classList.toggle('blur');
-            document.querySelectorAll('header, nav, section, footer, .image1').forEach(element => {
-                element.classList.toggle('blur');
-            });
+        function openOverlay() {
+            document.getElementById('overlay').style.display = 'flex';
         }
 
-        // Function to extract the streamer parameter from the URL
-        function getStreamerParameter() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('streamer');
+        function closeOverlay() {
+            document.getElementById('overlay').style.display = 'none';
         }
 
-        // Update the content of the greeting element with the streamer parameter
-        function updateGreeting() {
-            const streamer = getStreamerParameter();
-            const greetingElement = document.getElementById('greeting');
-            const textStreamer = document.getElementById('streamerText');
-
-            if (streamer) {
-                greetingElement.textContent += streamer + ', one of our';
-                textStreamer.textContent += streamer;
-            } else {
-                window.close();
-            }
-        }
-
-        // Call the updateGreeting function when the page loads
-        window.onload = updateGreeting;
+        // Call the openOverlay function when the page loads (you can call it wherever you need)
+        window.onload = openOverlay;
     </script>
     <footer>
-        <p>&copy; 2023 Dale Glenn Media Center. All rights reserved by the Jaheed Jehnsen Fund and the Pop Monster Institute.</p>
+        <!-- ... (unchanged footer) ... -->
     </footer>
 </body>
 </html>
