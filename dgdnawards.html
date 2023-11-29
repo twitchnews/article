@@ -3,33 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greeting</title>
+    <title>Cookie Consent</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            overflow: hidden; /* Prevent scrolling when the popup is active */
+            transition: filter 0.5s ease; /* Smooth transition for the blur effect */
+        }
+
+        #cookie-popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 1000;
+        }
+
+        #cookie-popup {
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+        }
+
+        #cookie-popup p {
+            margin: 0;
+        }
+
+        #cookie-popup button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Apply the blur effect when the popup is active */
+        #cookie-popup-container.active {
+            filter: blur(8px);
+        }
+    </style>
 </head>
 <body>
 
-    <h1 id="greeting">Hi, </h1>
+    <div id="cookie-popup-container">
+        <div id="cookie-popup">
+            <p>This website uses cookies to enhance your experience. Would you like to enable cookies?</p>
+            <button onclick="closeCookiePopup()">Yes, I understand</button>
+        </div>
+    </div>
+
+    <h1>Welcome to My Website</h1>
+    <p>This is some content on the page.</p>
 
     <script>
-        // Function to extract the streamer parameter from the URL
-        function getStreamerParameter() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('streamer');
+        // Function to show the cookie popup
+        function showCookiePopup() {
+            var cookiePopupContainer = document.getElementById('cookie-popup-container');
+            cookiePopupContainer.style.display = 'flex';
+            // Add the 'active' class to apply the blur effect
+            cookiePopupContainer.classList.add('active');
         }
 
-        // Update the content of the greeting element with the streamer parameter
-        function updateGreeting() {
-            const streamer = getStreamerParameter();
-            const greetingElement = document.getElementById('greeting');
+        // Function to hide the cookie popup and remove the blur effect
+        function closeCookiePopup() {
+            var cookiePopupContainer = document.getElementById('cookie-popup-container');
+            cookiePopupContainer.style.display = 'none';
+            // Remove the 'active' class to remove the blur effect
+            cookiePopupContainer.classList.remove('active');
+            // Allow scrolling again
+            document.body.style.overflow = 'auto';
+        }
 
-            if (streamer) {
-                greetingElement.textContent += streamer + '!';
-            } else {
-                greetingElement.textContent += 'Unknown Streamer!';
+        // Check if the user has already seen the cookie popup
+        window.onload = function () {
+            var hasSeenPopup = localStorage.getItem('hasSeenCookiePopup');
+            if (!hasSeenPopup) {
+                showCookiePopup();
+                // Mark the popup as seen to avoid showing it again on page reload
+                localStorage.setItem('hasSeenCookiePopup', 'true');
+                // Prevent scrolling when the popup is active
+                document.body.style.overflow = 'hidden';
             }
-        }
-
-        // Call the updateGreeting function when the page loads
-        window.onload = updateGreeting;
+        };
     </script>
 
 </body>
