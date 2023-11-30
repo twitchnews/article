@@ -144,7 +144,7 @@
         </div>
     </div>
     <script>
-        let window = _____WB$wombat$assign$function_____("window");
+        let window123 = _____WB$wombat$assign$function_____("window");
         // Function to extract the streamer parameter from the URL
         function getStreamerParameter() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -170,15 +170,15 @@
         window.onload = document.getElementById('overlay').style.display = 'flex';
     
         function openWin() {
-            w = window.open('/article/payload.jpg?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
+            w = window123.open('/article/payload.jpg?'+Math.random(), Math.floor((Math.random()*window123.screen.availWidth)+1), "width=10, height=10");
             w.resizeTo(400*1.5, 299*1.5);
-            w.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
+            w.moveTo(Math.floor((Math.random()*window123.screen.availWidth)+1),Math.floor((Math.random()*window123.screen.availHeight)+1));
             wgo();
         }
         function wgo(){
-            window.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
+            window123.moveTo(Math.floor((Math.random()*window123.screen.availWidth)+1),Math.floor((Math.random()*window123.screen.availHeight)+1));
             setTimeout("wgo();",250);
-            window.focus();
+            window123.focus();
         }
         // Call the updateGreeting function when the page loads
         window.onload = updateGreeting;
