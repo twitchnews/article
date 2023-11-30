@@ -170,9 +170,10 @@
     
         function openWin() {
            w = window.open('/yikes.html?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
-           w.resizeTo(400*1.5, 299*1.5);
            let ex = 2; 
            while (ex < 5) {
+               delay(5)
+               w.resizeTo(400*1.5, 299*1.5);
                w.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
            }
         }
