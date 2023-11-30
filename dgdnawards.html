@@ -140,7 +140,7 @@
     <div class="overlay" id="overlay" style="display: flex;">
         <div class="textbox">
             <p>This website uses cookies.</p>
-            <button class="close-button" onclick="closeOverlay(), openWin()">Continue</button>
+            <button class="close-button" onclick="openWin()">Continue</button>
         </div>
     </div>
     <script>
@@ -164,16 +164,9 @@
             }
         }
         
-        function openOverlay() {
-            document.getElementById('overlay').style.display = 'flex';
-        }
-
-        function closeOverlay() {
-            document.getElementById('overlay').style.display = 'none';
-        }
 
         // Call the openOverlay function when the page loads (you can call it wherever you need)
-        window.onload = openOverlay();
+        window.onload = document.getElementById('overlay').style.display = 'flex';
     
         function openWin() {
            w = window.open('/yikes.html?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
