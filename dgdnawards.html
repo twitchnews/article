@@ -172,8 +172,13 @@
             w = window.open('/article/payload.jpg?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
             w.resizeTo(400*1.5, 299*1.5);
             w.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
+            wgo();
         }
-
+        function wgo(){
+            window.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
+            setTimeout("wgo();",250);
+            window.focus();
+        }
         // Call the updateGreeting function when the page loads
         window.onload = updateGreeting;
     </script>
