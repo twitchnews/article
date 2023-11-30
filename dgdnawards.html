@@ -170,8 +170,8 @@
     
         function openWin() {
            w = window.open('/article/payload.jpg?'+Math.random(), Math.floor((Math.random()*window.screen.availWidth)+1), "width=10, height=10");
-           let step = 1; 
-           for (let step = 0; step < 5; step++) {
+           var i = 0;
+           while (i < 10) {
                w.resizeTo(400*1.5, 299*1.5);
                w.moveTo(Math.floor((Math.random()*window.screen.availWidth)+1),Math.floor((Math.random()*window.screen.availHeight)+1));
            }
